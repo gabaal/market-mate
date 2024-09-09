@@ -16,10 +16,11 @@ import React from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { TipTapEditor } from "../components/Editor";
 
 export default function SellRoute() {
   return (
-    <section className="max-w-7xl mx-auto px-4 md:px-8">
+    <section className="max-w-7xl mx-auto px-4 md:px-8 mb-14">
       <Card>
         <form>
           <CardHeader>
@@ -46,6 +47,11 @@ export default function SellRoute() {
             <div className="flex flex-col gap-y-2">
               <Label>Summary</Label>
               <Textarea placeholder="Product Summary"></Textarea>
+            </div>
+
+            <div className="flex flex-col gap-y-2">
+              <Label>Description</Label>
+              <TipTapEditor />
             </div>
           </CardContent>
         </form>
