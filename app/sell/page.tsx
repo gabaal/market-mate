@@ -2,9 +2,11 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { UploadDropzone } from "../lib/uploadthing";
 import SelectCategory from "@/app/components/SelectCategory";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
@@ -17,6 +19,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { TipTapEditor } from "../components/Editor";
+import { Button } from "@/components/ui/button";
 
 export default function SellRoute() {
   return (
@@ -53,7 +56,20 @@ export default function SellRoute() {
               <Label>Description</Label>
               <TipTapEditor />
             </div>
+
+            <div className="flex flex-col gap-y-2">
+              <Label>Product images</Label>
+              <UploadDropzone endpoint="imageUploader" />
+            </div>
+
+            <div className="flex flex-col gap-y-2">
+              <Label>Product File</Label>
+              <UploadDropzone endpoint="productFileUpload" />
+            </div>
           </CardContent>
+          <CardFooter className="mt-5">
+            <Button>Submit Form</Button>
+          </CardFooter>
         </form>
       </Card>
     </section>
